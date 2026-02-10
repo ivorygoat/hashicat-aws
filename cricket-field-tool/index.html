@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cricket Field Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="controls">
+        <h1>Cricket Field Planner</h1>
+        <p>
+          Place and adjust fielders by clicking on the field. Drag markers to fine-tune
+          positions and export your setup as JSON.
+        </p>
+
+        <label for="position-select">Fielder position</label>
+        <select id="position-select"></select>
+
+        <div class="button-row">
+          <button id="add-at-cursor" type="button">Add at center</button>
+          <button id="clear-all" type="button" class="danger">Clear all</button>
+        </div>
+
+        <div class="button-row">
+          <button id="download-json" type="button">Export JSON</button>
+          <label class="upload-label" for="upload-json">Import JSON</label>
+          <input id="upload-json" type="file" accept="application/json" />
+        </div>
+
+        <p class="hint">
+          Tip: Use common presets below to get started quickly.
+        </p>
+
+        <div class="button-row presets">
+          <button data-preset="powerplay" type="button">Powerplay</button>
+          <button data-preset="defensive" type="button">Defensive</button>
+          <button data-preset="attacking" type="button">Attacking</button>
+        </div>
+      </section>
+
+      <section class="field-wrap">
+        <svg id="field" viewBox="0 0 1000 1000" role="img" aria-label="Cricket field layout">
+          <defs>
+            <radialGradient id="grass" cx="50%" cy="50%" r="60%">
+              <stop offset="0%" stop-color="#58b66b" />
+              <stop offset="100%" stop-color="#2e8745" />
+            </radialGradient>
+          </defs>
+
+          <circle cx="500" cy="500" r="470" class="outfield" />
+          <circle cx="500" cy="500" r="290" class="inner-ring" />
+          <rect x="470" y="380" width="60" height="240" class="pitch" />
+          <line x1="500" y1="50" x2="500" y2="950" class="axis" />
+          <line x1="50" y1="500" x2="950" y2="500" class="axis" />
+
+          <g id="marker-layer"></g>
+        </svg>
+      </section>
+    </main>
+
+    <template id="marker-template">
+      <g class="marker" data-id="">
+        <circle r="24"></circle>
+        <text text-anchor="middle" dy="6"></text>
+      </g>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
