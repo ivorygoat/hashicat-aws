@@ -1,0 +1,152 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f8;
+  color: #1f2933;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  min-height: 100vh;
+}
+
+.controls {
+  background: #ffffff;
+  border-right: 1px solid #dce2e8;
+  padding: 1.2rem;
+}
+
+.controls h1 {
+  margin-top: 0;
+}
+
+.controls p {
+  line-height: 1.5;
+}
+
+select,
+button,
+.upload-label {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.55rem;
+  border: 1px solid #c3cbd5;
+  font: inherit;
+}
+
+button,
+.upload-label {
+  background: #f8fbff;
+  cursor: pointer;
+  text-align: center;
+}
+
+button:hover,
+.upload-label:hover {
+  background: #ecf5ff;
+}
+
+button.danger {
+  border-color: #f1b8b8;
+  color: #842727;
+  background: #fff6f6;
+}
+
+.button-row {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.hint {
+  margin-top: 1rem;
+  color: #52606d;
+  font-size: 0.92rem;
+}
+
+.presets {
+  grid-template-columns: 1fr;
+}
+
+#upload-json {
+  display: none;
+}
+
+.field-wrap {
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+#field {
+  width: min(92vh, 92vw);
+  max-width: 960px;
+  filter: drop-shadow(0 8px 24px rgba(16, 24, 40, 0.2));
+}
+
+.outfield {
+  fill: url(#grass);
+  stroke: #c6e7ca;
+  stroke-width: 8;
+}
+
+.inner-ring {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 5;
+  stroke-dasharray: 10 8;
+}
+
+.pitch {
+  fill: #d9c093;
+  stroke: #b79661;
+  stroke-width: 3;
+}
+
+.axis {
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 2;
+}
+
+.marker {
+  cursor: grab;
+  user-select: none;
+}
+
+.marker.dragging {
+  cursor: grabbing;
+}
+
+.marker circle {
+  fill: rgba(15, 23, 42, 0.9);
+  stroke: #ffffff;
+  stroke-width: 3;
+}
+
+.marker text {
+  fill: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    border-right: none;
+    border-bottom: 1px solid #dce2e8;
+  }
+}
